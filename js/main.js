@@ -548,7 +548,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var coupleNameEl = document.getElementById('album-couple-name');
     if (coupleNameEl) {
       var names = album.couple.split(' & ');
-      coupleNameEl.innerHTML = names[0] + ' <span>&amp;</span> ' + names[1];
+      if (names.length === 2) {
+        coupleNameEl.innerHTML = names[0] + ' <span>&amp;</span> ' + names[1];
+      } else {
+        coupleNameEl.textContent = album.couple;
+      }
     }
 
     var locationEl = document.getElementById('album-location');
